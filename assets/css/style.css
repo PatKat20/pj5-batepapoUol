@@ -19,7 +19,6 @@ body{
 }
 
 .loginPage{
-    width:98vw;
     height:100vh;
     min-height:70vh;
     display:flex;
