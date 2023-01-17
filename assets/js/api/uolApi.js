@@ -1,13 +1,9 @@
-const urlEnter = () => `https://mock-api.driven.com.br/api/v6/uol/participants`
+const userLoggedInformation = {}
 
 const apiMethods = {}
 
 apiMethods.enterChat = (participant) =>{
-    const participantEnter = {
-        name: participant
-    }
-    axios.post("https://mock-api.driven.com.br/api/v6/uol/participants " , participantEnter)
-
+    return axios.post("https://mock-api.driven.com.br/api/v6/uol/participants" , {name: participant})
 }
 
 export { apiMethods }

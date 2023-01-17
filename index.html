@@ -5,21 +5,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Bate-papo UOL</title>
 </head>
 
 <body>
-    <div class="logoArea">
-        <img src="assets/img/logo.svg" alt="">
+    <div class="loginPage">
+        <div class="logoArea">
+            <img src="./assets/img/logo.svg" alt="">
+        </div>
+        <form class="inputArea">
+            <input type="text" id="nickNameInput" placeholder="Digite seu nome" required>
+            <button id="btnEnter">Entrar</button>
+        </form>
+        <div id="loader" class="hide">
+            <i class="fa-solid fa-spinner"></i>
+            <p style="margin-top:20px;">Entrando...</p>
+        </div>
     </div>
-    <form action="./assets/pages/chat.html" class="inputArea">
-        <input type="text" id="nickNameInput" placeholder="Digite seu nome" required>
-        <button id="btnEnter">Entrar</button>
-    </form>
 
+    <div class="messagePage">
+        <div class="blur hide"></div>
+        <div class="onlinePeopleArea hideWithEffect">
+            <h2>Escolha um contato para enviar mensagem:</h2>
+            <p class="example"><ion-icon name="people"></ion-icon> Todos</p>
+            <ul class="onlinePeople">
+                
+            </ul>
+        </div>
+        <header id="header">
+            <div class="headerInfo">
+                <img src="./assets/img/logo.svg" alt="">
+                <ion-icon name="people" id="peopleButton"></ion-icon>
+            </div>
+        </header>
+        
+        <main id="main">
+            <div class="messageArea">
+     
+            </div>
+            <div class="messageInputArea">
+                <input type="text" name="" id="messageInput" placeholder="Escreva aqui...">
+                <ion-icon name="paper-plane-outline" id="buttonSend"></ion-icon>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="./assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
 </body>
 
 </html>
