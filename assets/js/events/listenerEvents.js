@@ -6,6 +6,10 @@ const btnEnterLogin = document.getElementById("btnEnter")
 const buttonSend = document.getElementById("buttonSend")
 const messageInput = document.getElementById("messageInput")
 
+const peopleBtn = document.getElementById("peopleButton");
+const onlinePeopleArea = document.querySelector(".onlinePeopleArea")
+const blur = document.querySelector(".blur");
+
 function startEvents() {
     btnEnterLogin.addEventListener("click", e => {
         const nickName = document.getElementById("nickNameInput");
@@ -34,6 +38,18 @@ function startEvents() {
         }, 500)
     })
 
+    peopleBtn.addEventListener("click" , _=>{
+        document.body.style.overflow = "hidden"
+        blur.classList.toggle("hide")
+        onlinePeopleArea.classList.toggle("showWithEffect")
+    })
+
+    blur.addEventListener("click", _=>{
+        document.body.style.overflow = "initial"
+        blur.classList.toggle("hide")
+        onlinePeopleArea.classList.toggle("showWithEffect")
+    })
 }
 
 export { startEvents }
+

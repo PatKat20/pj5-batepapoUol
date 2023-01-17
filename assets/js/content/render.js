@@ -16,5 +16,14 @@ const convertArrayIntoMessages = (messageList) => {
     return acc
 }
 
+const convertArrayIntoUsers = (userList) => {
+    return userList.reduce((acc, user) =>{
+        acc += `
+         <li><ion-icon name="person-circle"></ion-icon> ${user.name}</li>
+        `
+        return acc
+    }, "")
+    
+}
 
-export { convertArrayIntoMessages }
+export { convertArrayIntoMessages , convertArrayIntoUsers }

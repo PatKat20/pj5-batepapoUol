@@ -1,3 +1,5 @@
+import { convertArrayIntoMessages , convertArrayIntoUsers} from "../content/render.js"
+
 const userLoggedInformation = {}
 
 const apiMethods = {}
@@ -9,6 +11,7 @@ apiMethods.enterChat = (participant) =>{
 apiMethods.atualizeUserLogged = (participant) =>{
     userLoggedInformation.name = participant
 }
+
 apiMethods.sendMessage = (message) =>{
     if(userLoggedInformation.name){
         const messageData = {
@@ -40,12 +43,18 @@ apiMethods.getMessages = () =>{
     .catch((error) => console.log(error))
 }
 
-
 apiMethods.persistUser = () =>{
     setInterval(() =>{
         axios.post("https://mock-api.driven.com.br/api/v6/uol/status", { name: userLoggedInformation.name })
     }, 5000)
 }
 
+apiMethods.updateOnlineUsers = () =>{
+    const ul = document.querySelector(".onlinePeople")
+    axios.get("https://mock-api.driven.com.br/api/v6/uol/participants")
+        .then(response => response.data)
+        .then(convertArrayIntoUsers)
+        .then(user => ul.innerHTML = user)
+}
 
 export { apiMethods }
