@@ -10,7 +10,6 @@ utilsFunctions.toggleEnterInput = () => {
     inputArea.classList.toggle("hide")
 }
 
-
 function verifiyDigits(num){
     return num < 9 ? `0${num}` : num
 }

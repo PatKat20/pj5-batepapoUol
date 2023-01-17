@@ -5,11 +5,11 @@ const convertArrayIntoMessages = (messageList) => {
     for (let i = messageList.length - 30; i < messageList.length; i++) {
         if (messageList[i].type === "status") {
             acc += `
-            <p class="statusMessageEnter message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${messageList[i].from}</strong> para <strong>${messageList[i].to}</strong>: ${messageList[i].text}</p> 
+            <p class="statusMessageEnter message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(messageList[i].from).split(" ")[0]}</strong> para <strong>${messageList[i].to}</strong>: ${messageList[i].text}</p> 
             `
         } else if (messageList[i].type === "message") {
             acc += `
-                <p class="statusMessageLogin message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${messageList[i].from}</strong> para <strong>${messageList[i].to}</strong>: ${messageList[i].text}</p> 
+                <p class="statusMessageLogin message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(messageList[i].from).split(" ")[0]}</strong> para <strong>${messageList[i].to}</strong>: ${messageList[i].text}</p> 
             `
         }
     }
@@ -19,7 +19,7 @@ const convertArrayIntoMessages = (messageList) => {
 const convertArrayIntoUsers = (userList) => {
     return userList.reduce((acc, user) =>{
         acc += `
-         <li><ion-icon name="person-circle"></ion-icon> ${user.name}</li>
+         <li><ion-icon name="person-circle"></ion-icon> ${(user.name).split(" ")[0]}</li>
         `
         return acc
     }, "")

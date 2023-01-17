@@ -19,8 +19,7 @@ body{
 }
 
 .loginPage{
-    height:100vh;
-    min-height:70vh;
+    height:99vh;
     display:flex;
     justify-content: center;
     align-items: center;
