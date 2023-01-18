@@ -63,7 +63,7 @@ apiMethods.updateOnlineUsers = () =>{
     axios.get("https://mock-api.driven.com.br/api/v6/uol/participants")
         .then(response => response.data)
         .then(convertArrayIntoUsers)
-        .then(user => ul.innerHTML = user)
+        .then(user => { if(userLoggedInformation.online) ul.innerHTML = user })
         .then(insertEventOnClick)
 }
 

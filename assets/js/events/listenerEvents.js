@@ -47,7 +47,6 @@ function startEvents() {
             onlinePeopleArea.classList.toggle("hideWithEffect")
             onlinePeopleArea.classList.toggle("showWithEffect")
         }
-        
     })
 
     blur.addEventListener("click", _=>{
