@@ -1,6 +1,7 @@
 import { apiMethods } from "../api/uolApi.js"
 import { utilsFunctions } from "../utils/utils.js";
 import { onFailRequest, onSuccessRequest } from "../api/requestsResponse.js";
+import { message } from "./onPersonOnlineEvent.js";
 
 const btnEnterLogin = document.getElementById("btnEnter")
 const buttonSend = document.getElementById("buttonSend")
@@ -9,6 +10,7 @@ const messageInput = document.getElementById("messageInput")
 const peopleBtn = document.getElementById("peopleButton");
 const onlinePeopleArea = document.querySelector(".onlinePeopleArea")
 const blur = document.querySelector(".blur");
+
 
 function startEvents() {
     btnEnterLogin.addEventListener("click", e => {
@@ -25,7 +27,7 @@ function startEvents() {
     messageInput.addEventListener("keydown", e =>{
         if(e.keyCode === 13){
             setTimeout(() =>{
-                apiMethods.sendMessage(messageInput.value)
+                apiMethods.sendMessage(messageInput.value, message.type, message.userTo)
                 messageInput.value = ""
             }, 500)
         }
@@ -49,6 +51,7 @@ function startEvents() {
         blur.classList.toggle("hide")
         onlinePeopleArea.classList.toggle("showWithEffect")
     })
+
 }
 
 export { startEvents }

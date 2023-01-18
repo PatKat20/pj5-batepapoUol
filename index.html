@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Bate-papo UOL</title>
 </head>
@@ -27,11 +29,28 @@
 
     <div class="messagePage">
         <div class="blur hide"></div>
-        <div class="onlinePeopleArea hideWithEffect">
+        <div class="onlinePeopleArea">
             <h2>Escolha um contato para enviar mensagem:</h2>
-            <p class="example"><ion-icon name="people"></ion-icon> Todos</p>
-            <ul class="onlinePeople">
-                
+            <p class="example onlinePerson selecionado" style="cursor:pointer;">
+                <ion-icon name="people"></ion-icon> 
+                <span class="checkmarkArea">Todos <ion-icon name="checkmark-sharp" class="checkmark"></ion-icon></span>
+            </p>
+            <ul class="onlinePeople"></ul>
+            <h2 id="visibilityTitle">Escolha a visibilidade:</h2>
+            <ul class="visibilyArea">
+                <li class="visibilityI selecionado" >
+                    <ion-icon name="lock-open"></ion-icon> 
+                    <span class="checkmarkArea">Público
+                    <ion-icon name="checkmark-sharp" class="checkmark"></ion-icon>
+                    </span>
+                 </li>
+                 <li class="visibilityI" >
+                    <ion-icon name="lock-closed"></ion-icon> 
+                    <span class="checkmarkArea">
+                    Reservadamente
+                    <ion-icon name="checkmark-sharp" class="checkmark"></ion-icon>
+                    </span>
+                 </li>
             </ul>
         </div>
         <header id="header">
@@ -40,10 +59,10 @@
                 <ion-icon name="people" id="peopleButton"></ion-icon>
             </div>
         </header>
-        
+
         <main id="main">
             <div class="messageArea">
-     
+
             </div>
             <div class="messageInputArea">
                 <input type="text" name="" id="messageInput" placeholder="Escreva aqui...">

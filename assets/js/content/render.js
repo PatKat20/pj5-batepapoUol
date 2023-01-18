@@ -1,29 +1,48 @@
 import { utilsFunctions } from "../utils/utils.js"
+import { apiMethods } from "../api/uolApi.js"
 
 const convertArrayIntoMessages = (messageList) => {
-    let acc = ""
-    for (let i = messageList.length - 30; i < messageList.length; i++) {
-        if (messageList[i].type === "status") {
+    const userInformations = apiMethods.getUserLoggedInformation()
+    
+    return messageList.reduce((acc, message) => {
+        if (message.type === "status") {
             acc += `
-            <p class="statusMessageEnter message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(messageList[i].from).split(" ")[0]}</strong> para <strong>${messageList[i].to}</strong>: ${messageList[i].text}</p> 
+            <p class="statusMessageEnter message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
             `
-        } else if (messageList[i].type === "message") {
+        } else if (message.type === "message") {
             acc += `
-                <p class="statusMessageLogin message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(messageList[i].from).split(" ")[0]}</strong> para <strong>${messageList[i].to}</strong>: ${messageList[i].text}</p> 
+                <p class="statusMessageLogin message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
+            `
+        }else if (message.type === "private_message" && (userInformations.name === message.from || userInformations.name === message.to)) {
+            acc += `
+                <p class="statusPrivateMessage message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
             `
         }
-    }
-    return acc
+        return acc
+    }, "")
+
 }
 
 const convertArrayIntoUsers = (userList) => {
-    return userList.reduce((acc, user) =>{
+    return userList.reduce((acc, user) => {
         acc += `
-         <li><ion-icon name="person-circle"></ion-icon> ${(user.name).split(" ")[0]}</li>
+         <li class="onlinePerson" onclick="insertEventOnClick(this)">
+            <ion-icon name="person-circle"></ion-icon> 
+            <span class="checkmarkArea">${(user.name).split(" ")[0]} 
+            <ion-icon name="checkmark-sharp" class="checkmark"></ion-icon>
+            </span>
+         </li>
         `
         return acc
     }, "")
     
 }
 
-export { convertArrayIntoMessages , convertArrayIntoUsers }
+function insertMessages(messages) {
+    const messageArea = document.querySelector(".messageArea")
+    messageArea.innerHTML = messages
+    const lastMessage = document.querySelector(".message:last-child")
+    lastMessage.scrollIntoView()
+}
+
+export { convertArrayIntoMessages, convertArrayIntoUsers , insertMessages}
