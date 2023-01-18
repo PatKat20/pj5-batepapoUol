@@ -1,7 +1,7 @@
 import { apiMethods } from "../api/uolApi.js"
 import { utilsFunctions } from "../utils/utils.js";
 import { onFailRequest, onSuccessRequest } from "../api/requestsResponse.js";
-import { message } from "./onPersonOnlineEvent.js";
+import { message } from "./modalEvents.js";
 
 const btnEnterLogin = document.getElementById("btnEnter")
 const buttonSend = document.getElementById("buttonSend")
@@ -43,13 +43,20 @@ function startEvents() {
     peopleBtn.addEventListener("click" , _=>{
         document.body.style.overflow = "hidden"
         blur.classList.toggle("hide")
-        onlinePeopleArea.classList.toggle("showWithEffect")
+        if(onlinePeopleArea.classList.contains("hideWithEffect")){
+            onlinePeopleArea.classList.toggle("hideWithEffect")
+            onlinePeopleArea.classList.toggle("showWithEffect")
+        }
+        
     })
 
     blur.addEventListener("click", _=>{
         document.body.style.overflow = "initial"
         blur.classList.toggle("hide")
-        onlinePeopleArea.classList.toggle("showWithEffect")
+        if(onlinePeopleArea.classList.contains("showWithEffect")){
+            onlinePeopleArea.classList.toggle("hideWithEffect")
+            onlinePeopleArea.classList.toggle("showWithEffect")
+        }
     })
 
 }

@@ -98,19 +98,16 @@ body{
 }
 
 .onlinePeopleArea{
-    text-align: right;
-    height:100vh;
-    width:0;
     background-color:white;
-    position:fixed;
-    right:0;
-    z-index:-1;
     padding:20px;
-    transition:width .5s;
+    width:0%;
+    position:fixed;
     opacity:0;
+    right:0;
+    height:100vh;
+    text-align: right;
+    transition:width .5s;
 }
-
-
 
 .onlinePeopleArea h2{
     text-align:center;
@@ -218,13 +215,23 @@ body{
     right:0;
     z-index:4;
     height:105%;
+    transition:all .5s;
 }
 
-.statusMessageLogin{
+.hideWithEffect{
+    position:fixed;
+    width:0%;
+    right:0;
+    z-index:-1;
+    opacity:0;
+    transition:all .5s;
+}
+
+.message{
     background-color:#FFFFFF;
 }
 
-.statusMessageEnter{
+.status{
     background-color:#DCDCDC;
 }
 

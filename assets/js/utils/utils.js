@@ -11,7 +11,7 @@ utilsFunctions.toggleEnterInput = () => {
 }
 
 function verifiyDigits(num){
-    return num < 9 ? `0${num}` : num
+    return num <= 9 ? `0${num}` : num
 }
 
 utilsFunctions.getData = () => {

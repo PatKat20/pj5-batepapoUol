@@ -1,5 +1,5 @@
 import { convertArrayIntoMessages , convertArrayIntoUsers, insertMessages} from "../content/render.js"
-import { insertEventOnClick } from "../events/onPersonOnlineEvent.js"
+import { insertEventOnClick } from "../events/modalEvents.js"
 
 const userLoggedInformation = {}
 

@@ -1,6 +1,6 @@
 import { startEvents } from "./events/listenerEvents.js";
 import { apiMethods } from "./api/uolApi.js";
-import {insertEventOnVisuality} from "./events/onPersonOnlineEvent.js";
+import {insertEventOnVisuality} from "./events/modalEvents.js";
 
 startEvents()
 insertEventOnVisuality()
