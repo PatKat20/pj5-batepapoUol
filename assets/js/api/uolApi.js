@@ -5,19 +5,23 @@ const userLoggedInformation = {}
 
 const apiMethods = {}
 
+// Método para pegar uma cópia das informações do usuário logado
 apiMethods.getUserLoggedInformation = () =>{
     return {...userLoggedInformation}
 }
 
+// Método para entrar no chat
 apiMethods.enterChat = (participant) =>{
     return axios.post("https://mock-api.driven.com.br/api/v6/uol/participants" , {name: participant})
 }
 
+// Método de atualização do objeto UserInformations
 apiMethods.updateUserLogged = (participant) =>{
     userLoggedInformation.name = participant;
     userLoggedInformation.online = true;
 }
 
+// Método para enviar mensagem ao servidor
 apiMethods.sendMessage = (message, typeMessage = "message", userTo = "Todos") =>{
     if(userLoggedInformation.name){
         const messageData = {
@@ -36,6 +40,7 @@ apiMethods.sendMessage = (message, typeMessage = "message", userTo = "Todos") =>
     } else return
 }
 
+// Método para pegar as mensagens do servidor e inserir na tela
 apiMethods.getMessages = () =>{
     axios.get("https://mock-api.driven.com.br/api/v6/uol/messages")
     .then(response => response.data)
@@ -44,6 +49,7 @@ apiMethods.getMessages = () =>{
     .catch((error) => console.log(error.code))
 }
 
+// Método para manter o usuário logado
 apiMethods.persistUser = () =>{
     setInterval(() =>{
         axios.post("https://mock-api.driven.com.br/api/v6/uol/status", { name: userLoggedInformation.name })
@@ -51,6 +57,7 @@ apiMethods.persistUser = () =>{
     }, 5000)
 }
 
+// Método para atualizar o número de usuários logados e inserir no modal
 apiMethods.updateOnlineUsers = () =>{
     const ul = document.querySelector(".onlinePeople")
     axios.get("https://mock-api.driven.com.br/api/v6/uol/participants")

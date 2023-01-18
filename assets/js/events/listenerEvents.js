@@ -35,7 +35,7 @@ function startEvents() {
 
     buttonSend.addEventListener("click" , _=>{
         setTimeout(() =>{
-            apiMethods.sendMessage(messageInput.value)
+            apiMethods.sendMessage(messageInput.value, message.type, message.userTo)
             messageInput.value = ""
         }, 500)
     })
