@@ -12,8 +12,6 @@ function onclickPerson(){
         this.classList.toggle("selecionado")
         example.classList.remove("selecionado")
     }
-
-    console.log(message)
 }
 
 function createMessage(visibilityClicked){
@@ -33,7 +31,6 @@ function visibilityEvent(){
     }else{
         this.classList.toggle("selecionado")
     }
-    console.log(message)
 }
 
 function insertEventOnClick(){

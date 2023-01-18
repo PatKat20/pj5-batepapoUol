@@ -25,7 +25,7 @@ function startEvents() {
     })
 
     messageInput.addEventListener("keydown", e =>{
-        if(e.keyCode === 13){
+        if(e.key === "Enter"){
             setTimeout(() =>{
                 apiMethods.sendMessage(messageInput.value, message.type, message.userTo)
                 messageInput.value = ""
