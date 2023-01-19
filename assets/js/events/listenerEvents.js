@@ -26,18 +26,14 @@ function startEvents() {
 
     messageInput.addEventListener("keydown", e =>{
         if(e.key === "Enter"){
-            setTimeout(() =>{
-                apiMethods.sendMessage(messageInput.value, message.type, message.userTo)
-                messageInput.value = ""
-            }, 500)
+            apiMethods.sendMessage(messageInput.value, message.type, message.userTo);
+            messageInput.value = "";
         }
     })
 
     buttonSend.addEventListener("click" , _=>{
-        setTimeout(() =>{
-            apiMethods.sendMessage(messageInput.value, message.type, message.userTo)
-            messageInput.value = ""
-        }, 500)
+        apiMethods.sendMessage(messageInput.value, message.type, message.userTo);
+        messageInput.value = "";
     })
 
     peopleBtn.addEventListener("click" , _=>{
