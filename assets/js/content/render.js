@@ -3,16 +3,23 @@ import { apiMethods } from "../api/uolApi.js"
 
 const convertArrayIntoMessages = (messageList) => {
     const userInformations = apiMethods.getUserLoggedInformation()
-    
     return messageList.reduce((acc, message) => {
-        acc+= `
-            <p class="${message.type} message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
-        `
-       if (message.type === "private_message" && (userInformations.name === message.from || userInformations.name === message.to)) {
+        if (message.type === "status") {
+            acc += `
+                <p class="statusMessageEnter message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
+            `
+        } else if (message.type === "message") {
+            acc += `
+                <p class="statusMessageLogin message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
+            `
+        }
+        else if (message.type === "private_message" && (userInformations.name === message.from || userInformations.name === message.to)) {
             acc += `
                 <p class="statusPrivateMessage message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
             `
         }
+            
+        
         return acc
     }, "")
 
