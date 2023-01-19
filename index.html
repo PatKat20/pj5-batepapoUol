@@ -18,8 +18,8 @@
             <img src="./assets/img/logo.svg" alt="">
         </div>
         <form class="inputArea">
-            <input type="text" id="nickNameInput" placeholder="Digite seu nome" required>
-            <button id="btnEnter">Entrar</button>
+            <input type="text" id="nickNameInput" placeholder="Digite seu nome" required data-test="input-name">
+            <button id="btnEnter" data-test="send-name">Entrar</button>
         </form>
         <div id="loader" class="hide">
             <i class="fa-solid fa-spinner"></i>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="messagePage">
-        <div class="blur hide"></div>
+        <div class="blur hide" data-test="overlay"></div>
         <div class="onlinePeopleArea hideWithEffect">
             <h2>Escolha um contato para enviar mensagem:</h2>
             <p class="example onlinePerson selecionado" style="cursor:pointer;">
@@ -67,7 +67,7 @@
             <div class="messageInputArea">
                 <div class="messageInputBlock">
                     <input type="text" name="" id="messageInput" placeholder="Escreva aqui..." data-test="input-message">
-                    <p class="messageInputReservado hide">Enviando para Todos (reservadamente)</p>
+                    <p class="messageInputReservado hide" data-test="recipient">Enviando para Todos (reservadamente)</p>
                 </div>
                 <ion-icon name="paper-plane-outline" id="buttonSend" data-test="send-message"></ion-icon>
             </div>
