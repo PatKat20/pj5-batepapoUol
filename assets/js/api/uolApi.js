@@ -62,11 +62,13 @@ apiMethods.persistUser = () => {
 // Método para atualizar o número de usuários logados e inserir no modal
 apiMethods.updateOnlineUsers = () => {
     const ul = document.querySelector(".onlinePeople")
-    axios.get("https://mock-api.driven.com.br/api/v6/uol/participants")
-        .then(response => response.data)
-        .then(convertArrayIntoUsers)
-        .then(user => { if (userLoggedInformation.online) ul.innerHTML = user })
-        .then(insertEventOnClick)
+    if (userLoggedInformation.online) {
+        axios.get("https://mock-api.driven.com.br/api/v6/uol/participants")
+            .then(response => response.data)
+            .then(convertArrayIntoUsers)
+            .then(user => ul.innerHTML = user)
+            .then(insertEventOnClick)
+    }
 }
 
 export { apiMethods }

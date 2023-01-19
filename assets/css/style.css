@@ -254,11 +254,11 @@ body{
     transition:all .5s;
 }
 
-.statusMessageLogin{
+.messageStyle{
     background-color:#FFFFFF;
 }
 
-.statusMessageEnter{
+.statusStyle{
     background-color:#DCDCDC;
 }
 
