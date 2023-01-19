@@ -1,10 +1,12 @@
 const message = {}
+const reservedMsg = document.querySelector(".messageInputReservado")
 
 function onclickPerson(){
     const selecionado = this.parentElement.querySelector(".selecionado")
     const example = document.querySelector(".example")
 
     message.userTo = this.innerText
+    reservedMsg.innerHTML = `Enviando para ${this.innerText} (reservadamente)`
     if(selecionado !== null){
         selecionado.classList.remove("selecionado")
         this.classList.toggle("selecionado")
@@ -16,8 +18,10 @@ function onclickPerson(){
 
 function createMessage(visibilityClicked){
     if(visibilityClicked.innerText !== "Público"){
+        reservedMsg.classList.remove("hide")
         message.type = "private_message"
     }else{
+        reservedMsg.classList.add("hide")
         message.type="message"
     }
 }

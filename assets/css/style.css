@@ -118,10 +118,13 @@ body{
 }
 
 .onlinePeople{
-    cursor:pointer;
     height:150px;
     overflow-y:scroll;
     scrollbar-width:thin;
+}
+
+.onlinePerson{
+    cursor:pointer;
 }
 
 .onlinePeople::-webkit-scrollbar{
@@ -181,7 +184,7 @@ body{
 
 .messageInputArea{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-end;
     position:fixed;
     width: 100%;
@@ -196,6 +199,18 @@ body{
    padding:0 17px;
    outline: none;
    border:0;
+}
+
+.messageInputReservado{
+    opacity:.7;
+    padding:0 17px;
+    margin-top:-20px;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.messageInputBlock{
+    width:100%;
 }
 
 .messageInputArea input::placeholder{
