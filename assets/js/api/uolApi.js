@@ -28,7 +28,7 @@ apiMethods.sendMessage = (message, typeMessage = "message", userTo = "Todos") =>
             from: userLoggedInformation.name,
             to: userTo,
             text: message,
-            type: typeMessage // ou "private_message" para o bônus
+            type: typeMessage 
         }
         axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", messageData)
         .then(apiMethods.persistUser)

@@ -47,5 +47,4 @@ function insertEventOnVisuality(){
     visualityItens.forEach(visuality => visuality.onclick = visibilityEvent)
 }
 
-
 export { insertEventOnClick , insertEventOnVisuality, message}

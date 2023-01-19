@@ -6,20 +6,18 @@ const convertArrayIntoMessages = (messageList) => {
     return messageList.reduce((acc, message) => {
         if (message.type === "status") {
             acc += `
-                <p class="statusMessageEnter message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
+                <p class="statusMessageEnter message" data-test="message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
             `
         } else if (message.type === "message") {
             acc += `
-                <p class="statusMessageLogin message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
+                <p class="statusMessageLogin message" data-test="message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
             `
         }
         else if (message.type === "private_message" && (userInformations.name === message.from || userInformations.name === message.to)) {
             acc += `
-                <p class="statusPrivateMessage message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
+                <p class="statusPrivateMessage message" data-test="message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
             `
         }
-            
-        
         return acc
     }, "")
 
@@ -28,10 +26,10 @@ const convertArrayIntoMessages = (messageList) => {
 const convertArrayIntoUsers = (userList) => {
     return userList.reduce((acc, user) => {
         acc += `
-         <li class="onlinePerson" onclick="insertEventOnClick(this)">
+         <li class="onlinePerson" onclick="insertEventOnClick(this)" data-test="participant">
             <ion-icon name="person-circle"></ion-icon> 
             <span class="checkmarkArea">${(user.name).split(" ")[0]} 
-            <ion-icon name="checkmark-sharp" class="checkmark"></ion-icon>
+            <ion-icon name="checkmark-sharp" class="checkmark" data-test="check"></ion-icon>
             </span>
          </li>
         `

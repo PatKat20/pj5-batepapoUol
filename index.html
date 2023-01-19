@@ -33,22 +33,22 @@
             <h2>Escolha um contato para enviar mensagem:</h2>
             <p class="example onlinePerson selecionado" style="cursor:pointer;">
                 <ion-icon name="people"></ion-icon> 
-                <span class="checkmarkArea">Todos <ion-icon name="checkmark-sharp" class="checkmark"></ion-icon></span>
+                <span class="checkmarkArea" data-test="all">Todos <ion-icon name="checkmark-sharp" class="checkmark" data-test="check"></ion-icon></span>
             </p>
             <ul class="onlinePeople"></ul>
             <h2 id="visibilityTitle">Escolha a visibilidade:</h2>
             <ul class="visibilyArea">
-                <li class="visibilityI selecionado" >
+                <li class="visibilityI selecionado" data-test="public">
                     <ion-icon name="lock-open"></ion-icon> 
                     <span class="checkmarkArea">Público
-                    <ion-icon name="checkmark-sharp" class="checkmark"></ion-icon>
+                    <ion-icon name="checkmark-sharp" class="checkmark" data-test="check"></ion-icon>
                     </span>
                  </li>
-                 <li class="visibilityI" >
+                 <li class="visibilityI" data-test="private">
                     <ion-icon name="lock-closed"></ion-icon> 
                     <span class="checkmarkArea">
                     Reservadamente
-                    <ion-icon name="checkmark-sharp" class="checkmark"></ion-icon>
+                    <ion-icon name="checkmark-sharp" class="checkmark" data-test="check"></ion-icon>
                     </span>
                  </li>
             </ul>
@@ -56,7 +56,7 @@
         <header id="header">
             <div class="headerInfo">
                 <img src="./assets/img/logo.svg" alt="">
-                <ion-icon name="people" id="peopleButton"></ion-icon>
+                <ion-icon name="people" id="peopleButton" data-test="open-participants"></ion-icon>
             </div>
         </header>
 
@@ -66,10 +66,10 @@
             </div>
             <div class="messageInputArea">
                 <div class="messageInputBlock">
-                    <input type="text" name="" id="messageInput" placeholder="Escreva aqui..."">
+                    <input type="text" name="" id="messageInput" placeholder="Escreva aqui..." data-test="input-message">
                     <p class="messageInputReservado hide">Enviando para Maria (reservadamente)</p>
                 </div>
-                <ion-icon name="paper-plane-outline" id="buttonSend"></ion-icon>
+                <ion-icon name="paper-plane-outline" id="buttonSend" data-test="send-message"></ion-icon>
             </div>
         </main>
     </div>
