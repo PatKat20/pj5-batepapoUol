@@ -6,12 +6,24 @@ const convertArrayIntoMessages = (messageList) => {
     return messageList.reduce((acc, message) => {
         if(message.type !== "private_message"){
             acc += `
-                <p class="message ${message.type}Style" data-test="message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
+                <li class="message ${message.type}Style" data-test="message">
+                    <span class="data">(${message.time})</span> 
+                    <strong>${message.from}</strong>
+                    para 
+                    <strong>${message.to}</strong>: 
+                    <span class="messageDesc">${message.text}</span>
+                </li> 
             `
         }
         else if (message.type === "private_message" && (userInformations.name === message.from || userInformations.name === message.to)) {
             acc += `
-                <p class="statusPrivateMessage message" data-test="message"><span class="data">(${utilsFunctions.getData()})</span> <strong>${(message.from).split(" ")[0]}</strong> para <strong>${message.to}</strong>: <span class="messageDesc">${message.text}</span></p> 
+                <li class="statusPrivateMessage message" data-test="message">
+                    <span class="data">(${message.time})</span> 
+                    <strong>${message.from}</strong> 
+                    para 
+                    <strong>${message.to}</strong>: 
+                    <span class="messageDesc">${message.text}</span>
+                </li> 
             `
         }
         return acc
