@@ -5,7 +5,7 @@
 
 Este projeto consiste na recriação de uma antiga aplicação de bate-papo em tempo real do UOL, usando apenas JavaScript Vanilla. A aplicação possui um sistema de autenticação sem senha e envia requisições GET e POST para o servidor através de uma API.
 
-##Requisitos
+## Requisitos
 
 Para executar este projeto é necessário ter instalado:
 
