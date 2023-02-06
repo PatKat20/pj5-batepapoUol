@@ -14,7 +14,8 @@ Para executar este projeto é necessário ter instalado:
 ## Instalação
 
 Não é necessário realizar nenhum tipo de instalação, basta abrir o arquivo index.html no seu navegador para iniciar a aplicação.
-Uso
+
+## Uso
 
 Ao abrir o arquivo index.html você será redirecionado para a tela de autenticação, onde poderá digitar o seu apelido. Depois disso, você será direcionado para a tela de bate-papo em tempo real, onde poderá conversar com outros usuários conectados ao servidor.
 
